@@ -1,0 +1,4 @@
+<label>Username</label>
+<input type="text" class="form-control" [(ngModel)]="Username">
+<p class="text text-primary">{{Username}}</p>
+<button type="button" class="btn btn-danger" (click)="onClickCleanButton()" [disabled]="Username==''">Clean!</button>
