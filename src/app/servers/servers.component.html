@@ -1,5 +1,5 @@
-
-<label>Server Name</label>
+<label>
+    Server Name</label>
 <!-- <input
 type="text"
 class="form-control"
@@ -7,17 +7,11 @@ class="form-control"
 <p>{{ServerName}}</p> -->
 
 
-<input
-type="text"
-class="form-control"
-[(ngModel)]="ServerName">
+<input type="text" class="form-control" [(ngModel)]="ServerName">
 <p>{{ServerName}}</p>
 
 
 
-<button class="btn btn-primary"
- [disabled]="!allowNewServer"
- (click)="onCreateServer()"
->Add New Server</button>
-<app-server></app-server>
-<p class="text text-info">{{serverCreationStatus}}</p>
+<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add New Server</button>
+<app-server *ngFor="let server of Servers"></app-server>
+<p *ngIf="IsServerCreated" class="text text-primary">{{serverCreationStatus}} Server name is : {{ServerName}}</p>

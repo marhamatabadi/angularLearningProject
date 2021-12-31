@@ -1,0 +1,25 @@
+<div class="row pt-4 pb-4">
+    <div class="col-2">
+        <button class="btn btn-primary" (click)="onClickDetailButton()">Display Details</button>
+    </div>
+    <div class="col-10">
+        <p class="text text-primary" *ngIf="IsShow">This is a simple paragraph!</p>
+    </div>
+</div>
+
+<table *ngIf="btnClickLogs.length>0" class="table table-responsive">
+    <thead>
+        <tr class="text text-danger">
+            <th>Number</th>
+            <th>Click Date</th>
+            <th>IsShow Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let obj of btnClickLogs" [ngStyle]="{backgroundColor:obj.number>4?'blue':'white',color:obj.number>4?'white':'black'}">
+            <td> {{obj.number}}</td>
+            <td> {{obj.clickDate}}</td>
+            <td [ngClass]="{'text-danger' : obj.isShow==false,'text-success' : obj.isShow==true}"> {{obj.isShow}}</td>
+        </tr>
+    </tbody>
+</table>
